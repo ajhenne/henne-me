@@ -84,9 +84,10 @@
   height: 100%;
   vertical-align: middle;
   line-height: 10rem;
+  border-bottom: 3px solid hsla(0,0%,100%,0);
 }
 
 .navigation-button a:hover {
-  border-bottom: 3px solid var(--col-primary);
+  border-bottom-color: var(--col-primary);
 
 }

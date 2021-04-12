@@ -3,8 +3,8 @@ console.log("Drug calculation script initialised");
 const drugNames = ["cocaine", "heroine", "meth", "weed", "lsd", "moonshine", "p-cocaine", "p-heroine", "p-meth", "p-weed"];
 
 // VEHICLE TRUNK VALUES
-// HEMTT Box, HEMTT Fuel, Huron, Caesar-BTT, Mohawk, Orca, MH-9(Stripped), MH-9, Backpack
-const trunkArray = [700, 600, 600, 300, 250, 75, 30, 25, 0];
+// HEMTT Box, HEMTT Fuel, Huron, Caesar-BTT, Xi'an, Orca, MH-9(Stripped), MH-9, Backpack
+const trunkArray = [700, 600, 375, 300, 250, 75, 30, 25, 0];
 const trunkCells = document.getElementsByClassName("trunk");
 
 // LOOP FOR VEHICLE TRUNK VALUES
@@ -26,8 +26,6 @@ let rowCount = drugWeight.length;
 for ( let i=0; i < rowCount; i++ ) {
   drugUnitProfit[i].value = Math.round(drugPrice[i].value / drugWeight[i].value);
 }
-
-  console.log("Drug profit per units calculated");
 
 // DRUG MENU TABLE
 
@@ -62,7 +60,7 @@ function backpackUpdate() {
       backpackSize = 82;
       break;
     case "bergen":
-      backpackSize = 97.6;
+      backpackSize = 106;
       break;
     default:
       backpackSize = 0;
@@ -80,9 +78,7 @@ function runProfitUpdate() {
     let toMultiply = document.getElementsByClassName(drugNames[i]);
 
     for (let j = 0; j < trunkCells.length; j++) {
-      toMultiply[j].value = Number(Math.floor((Math.floor(trunkArray[j]/drugWeight[i].value)+Math.floor(backpackSize/drugWeight[i].value))
-      * drugPrice[i].value * drugMultiplier)).toLocaleString('en');
-
+      toMultiply[j].value = ((Math.floor(trunkArray[j]/drugWeight[i].value) + Math.floor(backpackSize/drugWeight[i].value)) * drugPrice[i].value * drugMultiplier).toLocaleString('en');
 
     }
   }
